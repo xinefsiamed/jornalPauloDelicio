@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {%block title%} BUSCA {%endblock%} 
+{% block content%}
+
+<div class="noticias-gerais">
+  <div class="secao">
+    <h2 class="tituloSecao">Busca pelo termo: {{ request.GET.termo }}</h2>
+    <section class="noticias">
+      {% for post in posts %}
+      <div class="noticia">
+          <a href="{% url 'post_detalhes' post.id %}"><h2>{{ post.titulo_post | safe}}</h2></a>
+          <h3>Postado em {{post.data_post}}</h3>
+          <h3>{{post.categoria_post}}</h3>
+          <article>
+            <figure>
+              {% if post.imagem_post %}
+              <a href="{% url 'post_detalhes' post.id %}"><img src="{{ post.imagem_post.url | safe}}" alt="noticia" /></a>
+              {%endif%}
+            </figure>
+            <a href="{% url 'post_detalhes' post.id %}"><p>{{post.excerto_post | safe}}</p></a>
+          </article>
+      </div>
+    {% endfor %}
+    </section>
+  </div>
+</div>
+
+{%endblock%}

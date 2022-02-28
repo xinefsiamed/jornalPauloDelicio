@@ -1,0 +1,80 @@
+{% extends 'base.html'%}
+{% block title %} {{post.titulo_post}} {% endblock %}
+{% block content %}
+{% load humanize %}
+<style>
+  .errorlist{
+        color: red!important;
+        padding: 0;
+        margin: 0;
+        font-size: 0.75rem;
+        font-weight: bold;
+    }
+
+  
+    .sucesso{
+  border-radius: 10px;
+  color: green;
+  background-color: lightgreen;
+  font-weight: bold;
+  padding: 0.3rem;
+}
+</style>
+
+<section>
+  {% if post.imagem_post %}
+  <img
+    src="{{ post.imagem_post.url }}"
+    alt="{{post.titulo_post}}"
+  />
+  {% endif %}
+  <h2>{{post.titulo_post}}</h2>
+  <h4>Escrito por {{ post.autor_post.first_name}}</h4>
+  <h3>Postado em: {{post.data_post}} | {{post.categoria_post}}</h3>
+
+  <div class="conteudo-noticia">
+    {{post.conteudo_post | safe}}
+
+  </div>
+</section>
+
+<div class="comentarios">
+  <h2><i class="fa-solid fa-comment"></i>Comentários ({{ comentarios.count }})</h2>
+  <div class="form-comentario">
+
+
+    {% if messages %}
+    {% for message in messages %}
+
+    <div class="sucesso">
+      {{message}}
+    </div>
+
+    {% endfor %}
+    {% endif %}
+    <form id="comentario-form" method="POST" action="#envia_comentario">
+      {% csrf_token %}
+      <ul>
+        {{form}}
+        <li>
+          <button type="submit">Enviar</button>
+        </li>
+      </ul>
+    </form>
+
+    
+  </div>
+  
+  {% for comentario in comentarios %}
+  <div class="comentario">
+    <h4>{{comentario.nome_comentario}}</h4>
+    <h3>{{comentario.data_comentario | naturalday}}</h3>
+    <p>
+      {{comentario.comentario}}
+    </p>
+  </div>
+{% endfor %}
+
+</div>
+
+{% endblock %}

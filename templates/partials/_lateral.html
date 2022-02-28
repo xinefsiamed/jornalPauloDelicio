@@ -1,0 +1,40 @@
+<div id="sideBar" class="sideBar">
+  <span onclick="closeBar()"><i class="fa-solid fa-x"></i></span>
+
+  <div class="sideContent">
+    <div class="boxBar">
+      <form id="searchForm" action="{% url 'post_busca' %}">
+        <input
+          name="termo"
+          type="search"
+          value="{{ request.GET.termo }}"
+          id="searchBox"
+          placeholder="Faça uma busca..."
+        />
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+    </div>
+
+    <div class="boxBar">
+      <ul>
+        <li><a href="{%url 'post_categoria' 'Politica'%}">Politica</a></li>
+        <li><a href="{%url 'post_categoria' 'Musica'%}">Musica</a></li>
+        <li><a href="{%url 'post_categoria' 'Dia-a-dia'%}">Dia-a-dia</a></li>
+        <li>
+          <a href="{%url 'post_categoria' 'Gremio'%}">Grêmio Estudantil</a>
+        </li>
+        <li><a href="{%url 'post_categoria' 'Saúde'%}">Saúde</a></li>
+        <li><a href="{%url 'post_categoria' 'Esporte'%}">Esporte</a></li>
+      </ul>
+    </div>
+
+    <div class="boxBar">
+      <div class="redes">
+        <span>Siga-nos: </span>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

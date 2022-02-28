@@ -1,0 +1,38 @@
+{% load account %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>{% block title %} {% endblock %}| Jornal Paulo Delicio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {% include 'partials/_head.html' %}
+  </head>
+
+  <body>
+
+    <div id="sidebar-background"></div>
+
+
+    <header id="header">
+      <span onclick="openBar()"><i class="fa-solid fa-bars"></i></span>
+      <a href="{% url 'index' %}"><h1>Jornal Paulo Delicio</h1></a>
+      {% if user.is_authenticated %}
+        {% if user.is_staff %}
+          <a href="{% url 'post_escrever'%}"><i class="fa-solid fa-pencil"></i> Escrever</a>
+        {% endif %}
+      <a href="{% url 'account_logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a>
+      {% else %}
+        <a href="{% url 'account_login' %}"><i class="fa-regular fa-user"></i> Fazer Login</a>
+      {% endif %}
+
+        
+    </header>
+
+    {% include 'partials/_lateral.html' %} {% include 'partials/_nav.html' %}
+
+    <main id="main" class="maxwid">{% block content%}{% endblock %}</main>
+
+    {% include 'partials/_footer.html' %}
+  </body>
+</html>
