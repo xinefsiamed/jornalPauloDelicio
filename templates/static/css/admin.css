@@ -73,7 +73,7 @@ input[type=submit].default:hover {
     background: #f52b3a;
     color: #000;
 
-    transition: all 0.25s;
+    transition: all 0.5s;
 }
 .button:active,
 input[type=submit]:active,
