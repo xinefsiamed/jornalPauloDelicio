@@ -8,7 +8,7 @@ from comentarios.models import Comentario
 from django.contrib import messages
 from .forms import FormPost
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-
+from categorias.models import Categoria
 
 class PostIndex(ListView):
     model = Post

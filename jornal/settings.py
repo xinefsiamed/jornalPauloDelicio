@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-vo4%^dy=#y(v+uwkc!#$dv0@eqpz7wx&!6qso)s+)gmg&+8+48'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['jornalpaulodelicio.com']
+ALLOWED_HOSTS = ['']
 
 
 # Application definition
@@ -84,12 +84,12 @@ WSGI_APPLICATION = 'jornal.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'jornal_paulo_delicio',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'USER': 'jornalpaulodelicio',
-        'PASSWORD': 'j0rnalp$ulO0d3lici0',
+        'ENGINE': '',
+        'NAME': '',
+        'HOST': '',
+        'PORT': '',
+        'USER': '',
+        'PASSWORD': '',
     }
 }
 

@@ -17,6 +17,9 @@
 
     <div class="boxBar">
       <ul>
+        {% for categoria in categorias %}
+          <li>{{ categoria }}</li>
+        {% endfor %}
         <li><a href="{%url 'post_categoria' 'Politica'%}">Politica</a></li>
         <li><a href="{%url 'post_categoria' 'Musica'%}">Musica</a></li>
         <li><a href="{%url 'post_categoria' 'Dia-a-dia'%}">Dia-a-dia</a></li>
